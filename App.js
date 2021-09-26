@@ -21,6 +21,14 @@ const App = () => {
           { key: "Outros: $1200" }
         ]}
         renderItem={({item})=> <Text>{item.key}</Text>} />
+      <Text style={styles.title}>Últimos lançamentos</Text>
+      <FlatList
+        data={[
+          { key: "Padaria Branca: $10" },
+          { key: "Supermercado Isadora: $190" },
+          { key: "Posto Ipiranga: $190" }
+        ]}
+        renderItem={({item})=> <Text>{item.key}</Text>} />
     </View>
   );
 }
