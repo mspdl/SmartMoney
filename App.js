@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, FlatList, StyleSheet, Text, View } from 'react-native';
 
 const App = () => {
 
@@ -9,13 +9,18 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.saldo}>
-        Saldo: $2.102,45
-      </Text>
-      <Button 
-        title='Adicionar'
-        onPress={addEntry}/>
-        
+      <Text style={styles.title}>Saldo: $2.102,45</Text>
+      <Button title='Adicionar' onPress={addEntry} />
+      <Text style={styles.title}>Categorias</Text>
+      <FlatList
+        data={[
+          { key: "Alimentação: $200" },
+          { key: "Combustível: $12" },
+          { key: "Aluguel: $120" },
+          { key: "Lazer: $250" },
+          { key: "Outros: $1200" }
+        ]}
+        renderItem={({item})=> <Text>{item.key}</Text>} />
     </View>
   );
 }
@@ -24,7 +29,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 10
   },
-  saldo: {
+  title: {
     fontSize: 22,
     fontWeight: 'bold',
     marginTop: 10,
